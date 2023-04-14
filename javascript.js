@@ -68,7 +68,7 @@ function getPlayerChoice() {
     let askPlayerChoice = prompt("Enter a choice: Rock, Paper or Scissors");
     let convertPlayerChoiceToLowCase = askPlayerChoice.toLowerCase();
     
-    if(convertPlayerChoiceToLowCase == ("rock" || "paper" || "scissors")) {
+    if(convertPlayerChoiceToLowCase == "rock" || "paper" || "scissors") {
         return convertPlayerChoiceToLowCase;
     } else {
         return "Not a valid selection";
