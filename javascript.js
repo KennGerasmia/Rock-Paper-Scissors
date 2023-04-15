@@ -1,66 +1,77 @@
 game();
 
+//The Land of the Functions//
 function game() {
-    for(let loop = 0; loop < 5; loop++) {
-        let getComputerChoiceFunction = getComputerChoice();
-        let getPlayerChoiceFunction = getPlayerChoice();
+    let getComputerChoiceFunction = getComputerChoice();
+    let getPlayerChoiceFunction = getPlayerChoice();
 
-        if(getPlayerChoiceFunction != "Not a valid selection") {
-            console.log(playRound(getPlayerChoiceFunction, getComputerChoiceFunction));
-        } else {
-            console.log(getPlayerChoiceFunction);
-        }
-        
-        function getComputerChoice() {
-            const randomInputs = ["rock", "paper", "scissors"];
-            let randomGeneration = Math.floor(Math.random() * 3);
-            let randomComputerChoice = randomInputs[randomGeneration];
-        
-            return randomComputerChoice;
-        }
-        
-        function getPlayerChoice() {
-            let askPlayerChoice = prompt("Enter a choice: Rock, Paper or Scissors");
-            let convertPlayerChoiceToLowCase = askPlayerChoice.toLowerCase();
-            
-            if(convertPlayerChoiceToLowCase == "rock" || convertPlayerChoiceToLowCase == "paper" || convertPlayerChoiceToLowCase == "scissors") {
-                return convertPlayerChoiceToLowCase;
-            } else {
-                return "Not a valid selection";
-            }
-        }
-        
-        function playRound(getPlayerChoiceParam, getComputerChoiceParam) {
-            console.log("Player chose " +getPlayerChoiceFunction +". While enemy chose " +getComputerChoiceFunction +".")
-            if(getPlayerChoiceParam === getComputerChoiceParam) {
-                return "Both are a tie!";
-            } else {
-                if (getPlayerChoiceParam == "rock") {
-                    switch (getComputerChoiceParam) {
-                        case "paper":
-                            return "Paper beats rock. Enemy wins!";
-                        case "scissors":
-                            return "Rock beats Scissors. Player wins!";
-                        }
-                    } else if (getPlayerChoiceParam == "paper") {
-                        switch (getComputerChoiceParam) {
-                            case "rock":
-                                return "Paper beats rock. Player wins!";
-                                case "scissors":
-                                    return "Scissors beats paper. Enemy wins!";
-                                }
-                            } else if (getPlayerChoiceParam == "scissors") {
-                                switch (getComputerChoiceParam) {
-                                    case "paper":
-                            return "Scissors beats paper. Player wins!";
-                            case "rock":
-                                return "Rock beats scissors. Enemy wins!";
-                            }
-                        }
-                    }
-                }
-            }
+    if (getPlayerChoiceFunction != "Not a valid selection") {
+        console.log(playRound(getPlayerChoiceFunction, getComputerChoiceFunction));
+    } else {
+        console.log(getPlayerChoiceFunction);
+    }
 }
+
+function getComputerChoice() {
+    const randomInputs = ["rock", "paper", "scissors"];
+    let randomGeneration = Math.floor(Math.random() * 3);
+    let randomComputerChoice = randomInputs[randomGeneration];
+
+    return randomComputerChoice;
+}
+
+function getPlayerChoice() {
+    let askPlayerChoice = prompt("Enter a choice: Rock, Paper or Scissors");
+    let convertPlayerChoiceToLowCase = askPlayerChoice.toLowerCase();
+
+    if (convertPlayerChoiceToLowCase == "rock" || convertPlayerChoiceToLowCase == "paper" || convertPlayerChoiceToLowCase == "scissors") {
+        return convertPlayerChoiceToLowCase;
+    } else {
+        return "Not a valid selection";
+    }
+}
+
+function playRound(getPlayerChoiceParam, getComputerChoiceParam) {
+    console.log("Player chose " + getPlayerChoiceParam + ". While enemy chose " + getComputerChoiceParam + ".")
+    if (getPlayerChoiceParam === getComputerChoiceParam) {
+        return "Both are a tie!";
+    } else {
+        if (getPlayerChoiceParam == "rock") {
+            switch (getComputerChoiceParam) {
+                case "paper":
+                    return "Paper beats rock. Enemy wins!";
+                case "scissors":
+                    return "Rock beats Scissors. Player wins!";
+            }
+        } else if (getPlayerChoiceParam == "paper") {
+            switch (getComputerChoiceParam) {
+                case "rock":
+                    return "Paper beats rock. Player wins!";
+                case "scissors":
+                    return "Scissors beats paper. Enemy wins!";
+            }
+        } else if (getPlayerChoiceParam == "scissors") {
+            switch (getComputerChoiceParam) {
+                case "paper":
+                    return "Scissors beats paper. Player wins!";
+                case "rock":
+                    return "Rock beats scissors. Enemy wins!";
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Old Code
 /*
