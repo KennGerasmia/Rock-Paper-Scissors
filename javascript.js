@@ -1,7 +1,7 @@
 game();
 
 function game() {
-    for(let loop = 0; loop < 10; loop++) {
+    for(let loop = 0; loop < 5; loop++) {
         let getComputerChoiceFunction = getComputerChoice();
         let getPlayerChoiceFunction = getPlayerChoice();
 
@@ -23,7 +23,7 @@ function game() {
             let askPlayerChoice = prompt("Enter a choice: Rock, Paper or Scissors");
             let convertPlayerChoiceToLowCase = askPlayerChoice.toLowerCase();
             
-            if(convertPlayerChoiceToLowCase == "rock" || convertPlayerChoiceToLowCase == "paper" || convertPlayerChoiceToLowCase == "scissors") {
+            if(convertPlayerChoiceToLowCase == "rock" || "paper" || "scissors") {
                 return convertPlayerChoiceToLowCase;
             } else {
                 return "Not a valid selection";
