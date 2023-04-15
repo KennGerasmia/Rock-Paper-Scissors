@@ -1,17 +1,11 @@
-game();
+let i;
 
-//The Land of the Functions//
-function game() {
-    let getComputerChoiceFunction = getComputerChoice();
-    let getPlayerChoiceFunction = getPlayerChoice();
-
-    if (getPlayerChoiceFunction != "Not a valid selection") {
-        console.log(playRound(getPlayerChoiceFunction, getComputerChoiceFunction));
-    } else {
-        console.log(getPlayerChoiceFunction);
-    }
+while(i = true) {
+    game();
+    i++;
 }
 
+//The Land of the Functions//
 function getComputerChoice() {
     const randomInputs = ["rock", "paper", "scissors"];
     let randomGeneration = Math.floor(Math.random() * 3);
@@ -61,7 +55,16 @@ function playRound(getPlayerChoiceParam, getComputerChoiceParam) {
     }
 }
 
+function game() {
+    let getComputerChoiceFunction = getComputerChoice();
+    let getPlayerChoiceFunction = getPlayerChoice();
 
+    if (getPlayerChoiceFunction != "Not a valid selection") {
+        return playRound(getPlayerChoiceFunction, getComputerChoiceFunction);
+    } else {
+        return console.log(getPlayerChoiceFunction);
+    }
+}
 
 
 
