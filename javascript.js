@@ -1,72 +1,74 @@
 let i;
-let askPlayerChoice;
-let scorePlayer = 0;
-let scoreComputer = 0;
+let playerChoice;
+let playerScore = 0;
+let computerScore = 0;
 
 while (i = true) {
-    let getGameFunction = game();
-    console.log(getGameFunction.join(""));
+    let gameFunction = playGame();
+    console.log(gameFunction.join(""));
 
-    if (getGameFunction[1] == " Player wins!") {
-        scorePlayer++;
-        if (scorePlayer == 5) {
+    if (gameFunction[1] == "Player wins!") {
+        playerScore++;
+        if (playerScore == 5) {
             console.log("PLAYER WON THE GAME!")
-            console.log("Player's score is: " + scorePlayer);
-            console.log("Enemy's score is: " + scoreComputer);
+            console.log("Player's score is: " + playerScore);
+            console.log("Enemy's score is: " + computerScore);
             break;
         }
-    } else if (getGameFunction[1] == " Enemy wins!") {
-        scoreComputer++;
-        if (scoreComputer == 5) {
+    } else if (gameFunction[1] == "Enemy wins!") {
+        computerScore++;
+        if (computerScore == 5) {
             console.log("ENEMY WON THE GAME!")
-            console.log("Player's score is: " + scorePlayer);
-            console.log("Enemy's score is: " + scoreComputer);
+            console.log("Player's score is: " + playerScore);
+            console.log("Enemy's score is: " + computerScore);
             break;
         }
     }
 
-    console.log("Player's score is: " + scorePlayer);
-    console.log("Enemy's score is: " + scoreComputer);
+    console.log("Player's score is: " + playerScore);
+    console.log("Enemy's score is: " + computerScore);
 }
 
 
 //The Land of the Functions//
-function game() {
-    let getComputerChoiceFunction = getComputerChoice();
-    let getPlayerChoiceFunction = getPlayerChoice();
+function playGame() {
+    let computerChoiceFunction = getComputerChoice();
+    let playerChoiceFunction = getPlayerChoice();
 
-    if (getPlayerChoiceFunction === "rock" || getPlayerChoiceFunction === "paper" || getPlayerChoiceFunction === "scissors") {
-        return playRound(getPlayerChoiceFunction, getComputerChoiceFunction);
+    if (playerChoiceFunction === "rock" ||
+        playerChoiceFunction === "paper" ||
+        playerChoiceFunction === "scissors") {
+        return playRound(playerChoiceFunction, computerChoiceFunction);
     } else {
-        return [askPlayerChoice, " is not a valid selection"];
+        return [playerChoice, " is not a valid selection"];
     }
 }
 
-function playRound(getPlayerChoiceParam, getComputerChoiceParam) {
-    console.log("Player chose " + getPlayerChoiceParam + ". While enemy chose " + getComputerChoiceParam + ".")
-    if (getPlayerChoiceParam === getComputerChoiceParam) {
+function playRound(playerChoiceParam, computerChoiceParam) {
+    console.log("Player chose " + playerChoiceParam + ". While enemy chose " + computerChoiceParam + ".")
+    if (playerChoiceParam === computerChoiceParam) {
         return ["Both are a tie!"];
     } else {
-        if (getPlayerChoiceParam == "rock") {
-            switch (getComputerChoiceParam) {
+        if (playerChoiceParam == "rock") {
+            switch (computerChoiceParam) {
                 case "paper":
-                    return ["Paper beats rock.", " Enemy wins!"];
+                    return ["Paper beats rock. ", "Enemy wins!"];
                 case "scissors":
-                    return ["Rock beats Scissors.", " Player wins!"];
+                    return ["Rock beats Scissors. ", "Player wins!"];
             }
-        } else if (getPlayerChoiceParam == "paper") {
-            switch (getComputerChoiceParam) {
+        } else if (playerChoiceParam == "paper") {
+            switch (computerChoiceParam) {
                 case "rock":
-                    return ["Paper beats rock.", " Player wins!"];
+                    return ["Paper beats rock. ", "Player wins!"];
                 case "scissors":
-                    return ["Scissors beats paper.", " Enemy wins!"];
+                    return ["Scissors beats paper. ", "Enemy wins!"];
             }
-        } else if (getPlayerChoiceParam == "scissors") {
-            switch (getComputerChoiceParam) {
+        } else if (playerChoiceParam == "scissors") {
+            switch (computerChoiceParam) {
                 case "paper":
-                    return ["Scissors beats paper.", " Player wins!"];
+                    return ["Scissors beats paper. ", "Player wins!"];
                 case "rock":
-                    return ["Rock beats scissors.", " Enemy wins!"];
+                    return ["Rock beats scissors. ", "Enemy wins!"];
             }
         }
     }
@@ -81,8 +83,8 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    askPlayerChoice = prompt("Enter a choice: rock, paper or scissors");
-    let convertPlayerChoiceToLowCase = askPlayerChoice.toLowerCase();
+    playerChoice = prompt("Enter a choice: rock, paper or scissors");
+    let playerChoiceToLowerCase = playerChoice.toLowerCase();
 
-    return convertPlayerChoiceToLowCase;
+    return playerChoiceToLowerCase;
 }
